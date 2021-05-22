@@ -8,26 +8,46 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Types',
-  data(){
-    return{
-      type : '-' //这里-就是支出,+就是输入
-    }
-  },
-  props: ['xxx'],
-  methods:{
-    selectType(type){  //我也有可能不是- +,而是其他,所以这里要做一个判断
-      if (type !== '-' && type !== '+'){
-        throw new Error('This type unknown')
-      }
-      this.type = type
-      console.log(this.xxx)
+<script lang="ts">
+import Vue from 'vue';
+import {Component} from 'vue-property-decorator';
+
+//装饰器
+@Component
+export default class Types extends Vue {
+  type = '-';
+
+  selectType(type: string) {
+    if (type !== '-' && type !== '+') {
+      throw new Error('This type unknown');
+    } else {
+      this.type = type;
     }
   }
-};
+}
 </script>
+
+
+<!--<script>-->
+<!--export default {-->
+<!--  name: 'Types',-->
+<!--  data(){-->
+<!--    return{-->
+<!--      type : '-' //这里-就是支出,+就是输入-->
+<!--    }-->
+<!--  },-->
+<!--  props: ['xxx'],-->
+<!--  methods:{-->
+<!--    selectType(type){  //我也有可能不是- +,而是其他,所以这里要做一个判断-->
+<!--      if (type !== '-' && type !== '+'){-->
+<!--        throw new Error('This type unknown')-->
+<!--      }-->
+<!--      this.type = type-->
+<!--      console.log(this.xxx)-->
+<!--    }-->
+<!--  }-->
+<!--};-->
+<!--</script>-->
 
 <style lang="scss" scoped>
 .types {
