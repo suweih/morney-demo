@@ -3,15 +3,31 @@
   <div>
     <label class="notes">
       <span class="name">备注</span>
-      <input type="text" placeholder="请在这里输入">
+      <!--      <input type="text" :value="value" @input="onInput" placeholder="请在这里输入">-->
+      <input type="text" v-model="value" placeholder="请在这里输入">
     </label>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Notes'
-};
+import Vue from 'vue';
+import {Component, Watch} from 'vue-property-decorator';
+
+@Component
+export default class Notes extends Vue {
+  value: string = '';
+
+@Watch('value')
+  onValueChange(value:string){
+    this.$emit('update:value',value)
+}
+
+
+  // onInput(event: KeyboardEvent) {
+  //   const input = event.target as HTMLButtonElement;
+  //   this.value = input.value;
+  // }
+}
 </script>
 
 <style lang="scss" scoped>
