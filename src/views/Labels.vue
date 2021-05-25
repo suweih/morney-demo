@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="createTags-wrapper">
-      <button @click="createTag" class="createTags">新建标签</button>
+      <Button @click="createTag" class="createTags">新建标签</Button>
     </div>
   </Layout>
 </template>
@@ -16,10 +16,12 @@
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import tagListModel from '@/model/tagListModel';
+import Button from '@/components/Button.vue';
 
 tagListModel.fetch();
-
-@Component
+@Component({
+  components: {Button}
+})
 export default class Labels extends Vue {
   tags = tagListModel.data;
 
@@ -60,14 +62,8 @@ export default class Labels extends Vue {
 }
 
 .createTags {
-  border-radius: 4px;
-  background: #767676;
-  color: white;
-  border: none;
-  height: 40px;
-  padding: 0 16px;
 
-  &-wrapper {
+&-wrapper {
     text-align: center;
     margin-top: 44-16px;
     padding: 16px;
