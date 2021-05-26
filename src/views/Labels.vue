@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="tags">
-      <router-link v-for="tag in tags" :key="tag.id"    :to="`/labels/edit/${tag.id}`" class="tag">
+      <router-link v-for="tag in tags" :key="tag.id" :to="`/labels/edit/${tag.id}`" class="tag">
         <span>{{ tag.name }}</span>
         <Icon name="right"/>
       </router-link>
@@ -27,15 +27,10 @@ export default class Labels extends Vue {
   createTag() {
     const name = window.prompt('请输入标签名');
     if (name) {
-      const message = tagListModel.create(name);
-      if (message === 'duplicated') {
-        window.alert('标签名重复');
-      } else if (message === 'success') {
-        window.alert('添加成功');
-      }
+      window.createTag(name);
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -62,7 +57,7 @@ export default class Labels extends Vue {
 
 .createTags {
 
-&-wrapper {
+  &-wrapper {
     text-align: center;
     margin-top: 44-16px;
     padding: 16px;
