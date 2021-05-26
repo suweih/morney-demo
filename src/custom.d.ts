@@ -16,7 +16,7 @@ type Tag = {
   id: string
   name: string
 }
-type TageListModel = {
+type TagListModel = {
   data: Tag[]
   fetch: () => Tag[]
   create: (name: string) => 'success' | 'duplicated' //联合类型 success表示成功 , duplicated表示重复
@@ -28,4 +28,7 @@ type TageListModel = {
 interface Window {
   tagList: Tag[]
   createTag: (name: string) => void
+  removeTag: (id: string) => boolean
+  updateTag: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
+  findTag: (id:string) => tag[]
 }

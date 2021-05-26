@@ -5,7 +5,7 @@ type Tag = {
   id: string
   name: string
 }
-type TageListModel = {
+type TagListModel = {
   data: Tag[]
   fetch: () => Tag[]
   create: (name: string) => 'success' | 'duplicated' //联合类型 success表示成功 , duplicated表示重复
@@ -13,7 +13,7 @@ type TageListModel = {
   remove: (id: string) => boolean
   save: () => void
 }
-const tagListModel: TageListModel = {
+const tagListModel: TagListModel = {
   data: [],
   fetch() {
     this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]');
