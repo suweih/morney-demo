@@ -10,7 +10,7 @@
       <FromItem field-name="备注" placeholder="请输入备注" @update:value="onUpdateNotes"/>
     </div>
     <!--标签-->
-    <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
+    <Tags/>
   </Layout>
 </template>
 
@@ -26,18 +26,16 @@ import store from '@/store/index2';
 
 @Component({
   components: {Tags, FromItem, Types, NumberPad},
+  computed: {
+    recordList() {
+      return store.recordList;
+    }
+  }
 })
 export default class Money extends Vue {
-  tags = store.tagList;
-  recordList: RecordItem[] = store.recordList;
   record: RecordItem = {
     tags: [], nodes: '', type: '-', amount: 0
   };
-
-
-  onUpdateTags(value: string[]) {
-    this.record.tags = value;
-  }
 
   onUpdateType(value: string) {
     this.record.type = value;
@@ -52,15 +50,16 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    store.createRecord(this.record)
+    store.createRecord(this.record);
   }
 }
 </script>
 <style lang="scss">
-.notes{
+.notes {
   padding: 12px 0;
   background: #f5f5f5;
 }
+
 .layout-content {
   display: flex;
   /*布局翻转*/
