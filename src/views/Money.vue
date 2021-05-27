@@ -24,20 +24,19 @@ import {Component} from 'vue-property-decorator';
 
 
 @Component({
-  components: {Tags, FromItem, Types, NumberPad},
-  computed: {
-    recordList() {
-      return this.$store.state.recordList;
-    }
-  }
+  components: {Tags, FromItem, Types, NumberPad}
 })
 export default class Money extends Vue {
+  get recordList() {
+    return this.$store.state.recordList;
+  }
+
   record: RecordItem = {
     tags: [], nodes: '', type: '-', amount: 0
   };
 
-  created(){
-    this.$store.commit('fetchRecords')
+  created() {
+    this.$store.commit('fetchRecords');
   }
 
   onUpdateType(value: string) {
@@ -53,7 +52,7 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    this.$store.commit('createRecord',this.record);
+    this.$store.commit('createRecord', this.record);
   }
 }
 </script>
