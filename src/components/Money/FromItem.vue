@@ -15,7 +15,7 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
 
 @Component
 export default class FromItem extends Vue {
-  @Prop({default:''}) readonly value! :string;
+  @Prop({default: ''}) readonly value!: string;
 
   @Prop({required: true}) fieldName!: string;
   @Prop() placeholder?: string;
@@ -23,12 +23,6 @@ export default class FromItem extends Vue {
   onValueChange(value: string) {
     this.$emit('update:value', value);
   }
-
-
-  // onInput(event: KeyboardEvent) {
-  //   const input = event.target as HTMLButtonElement;
-  //   this.value = input.value;
-  // }
 }
 </script>
 
