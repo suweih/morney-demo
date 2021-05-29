@@ -5,11 +5,23 @@
 //   type: '-',
 //   amount: '100'
 // };
+type RootState = {
+  recordList: RecordItem[],
+  createRecordError: Error | null ,
+  createTagError:Error|null,
+  tagList: Tag[],
+  currentTag?: Tag
+}
 
 //ts类型声明,我就要类型,不要值
 //一个key,对应一个类型
+
 type RecordItem = {
-  tags: string[], nodes: string, type: string, amount: number, createdAt?: Date
+  tags: Tag[],
+  nodes: string,
+  type: string,
+  amount: number,
+  createdAt?: string
 }
 
 type Tag = {
@@ -26,13 +38,5 @@ type TagListModel = {
 }
 
 interface Window {
-  // store:{
-  //   tagList: Tag[]
-  //   createTag: (name: string) => void
-  //   removeTag: (id: string) => boolean
-  //   updateTag: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
-  //   findTag: (id: string) => tag | undefined
-  //   recordList: RecordItem[]
-  //   createRecord: (record: RecordItem)=>void
-  // }
-  }
+  //
+}

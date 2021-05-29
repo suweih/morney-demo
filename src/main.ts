@@ -15,10 +15,13 @@ Vue.component('Layout', Layout);
 Vue.component('Icon', Icon);
 
 
-
-
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app');
+
+window.onload = function () {
+  setTimeout(function () {window.scroll(0, 100000);}, 0);
+};
+

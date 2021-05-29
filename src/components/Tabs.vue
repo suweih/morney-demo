@@ -20,7 +20,7 @@ export default class Tabs extends Vue {
   @Prop(String)
   classPrefix?: string;
   @Prop({type: String, default: '64px'})
-  height!: string;
+  height!: string;  //li上面绑定一个style,传一个高度,就可以实现js传参
 
   liClass(item: DataSourceItem) {
     return {
