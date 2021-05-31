@@ -24,9 +24,9 @@ new Vue({
 window.onload = function () {
   setTimeout(function () {window.scroll(0, 100000);}, 0);
 };
-if (document.documentElement.clientWidth > 550) {
-  window.alert('请使用手机打开本页面,以保证浏览效果');
-}
-// if (window.screen.width >500){
-//   window.alert('请使用手机打开,以确保浏览效果')
+// if (document.documentElement.clientWidth > 550) {
+//   window.alert('请使用手机打开本页面,以保证浏览效果');
 // }
+if (window.screen.width >500){
+  window.alert('请使用手机打开,以确保浏览效果')
+}
